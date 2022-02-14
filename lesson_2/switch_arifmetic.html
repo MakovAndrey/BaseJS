@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        let a = +prompt("введите первое целое число");
+        let b = +prompt("введите второе целое число");
+        let operation = prompt("Введите желаемую матиматическую операцию использую знаки '+', '-', '*', '/' ");
+
+        /** 
+        * @param {number} a принимает первое число
+        * @param {number} b принимает второе число
+        * @returns {number} возвращает в консоль разницу между числами a и b
+        */
+        function subtraction(a, b) {
+            return console.log(a - b);
+        }
+
+        /**
+        * @param {number} a принимает первое число
+        * @param {number} b принимает второе число
+        * @returns {number} возвращает в консоль результат сложения чисел a и b
+        */
+        function addition(a, b) {
+            return console.log(a + b);
+        }
+
+        /**
+        * @param {number} a принимает первое число
+        * @param {number} b принимает второе число
+        * @returns {number} возвращает в консоль результат умножения чисел a и b
+        */
+        function multiplication(a, b) {
+            return console.log(a * b);
+        }
+
+        /**
+        * @param {number} a принимает первое число
+        * @param {number} b принимает второе число
+        * @returns {number} возвращает в консоль результат деления чисел a и b
+        */
+        function division(a, b) {
+            return console.log(a / b);
+        }
+        
+
+        /**
+         * @param {number} a принимает первое число
+         * @param {number} b принимает второе число
+         * @param {sting} operation принимает значение математической операции в виде строки
+         * Возвращает команду определенной функции сложения, вычитания, деления или умножения в зависимости от поставленого знака в параметре operations
+         */
+        function mathOperation (a, b, operation) {
+            switch (operation) {
+                case "+" :  
+                    return addition(a, b);
+                            
+                case "-" :
+                    return subtraction(a, b);
+
+                case "/" :
+                    return division(a, b);
+
+                case "*" :
+                    return multiplication(a, b);
+                            
+                default :
+                    throw new Error("Operation " + operation + " is missing/ not provided");
+            }
+        }
+
+        mathOperation (a, b, operation);
+                    
+    </script>
+</body>
+</html>
