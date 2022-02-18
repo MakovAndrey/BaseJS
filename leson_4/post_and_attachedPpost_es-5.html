@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>post_and_attached-post ES-5</title>
+</head>
+<body>
+    <script>
+        /*Сделайте в стиле es5, а затем в стиле es6 (по аналогии из дополнительных видео -> 
+        3 примеры наследования -> механика наследования),
+        A) конструктор Post, который принимает параметры author, text, date и сохраняет их 
+        как свойства объекта. Объекты типа Post должны иметь метод edit, который будет 
+        принимать текст и записывать его в свойство text объекта.
+
+        B) конструктор AttachedPost, который принимает параметры author, text, date. 
+        Проинициализируйте эти свойства с помощью конструктора Post, чтобы не дублировать код. 
+        Также в конструкторе AttachedPost должно создаваться свойство highlighted со значением 
+        false. Унаследуйте в объектах типа AttachedPost методы из Post.
+        Объекты типа AttachedPost должны иметь метод makeTextHighlighted, который будет назначать 
+        свойству highlighted значение true.
+        */
+        'use strict'
+
+        function Post (author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        Post.prototype.edit = function (text) {
+            this.text = text;
+        }
+
+        const post1 = new Post ('Ivan', 'shut up and take my money', new Date());
+        console.log (post1);
+
+        post1.edit ('where is my money Lebovskiy');
+        console.log (post1);
+
+        function AttachedPost (author, text, date) {
+            Post.call (this,author, text, date);
+            this.hightlighted = false;
+        }
+
+        AttachedPost.prototype = Object.create (Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.hightlighted = true;
+        }
+
+        const attachedPost1 = new AttachedPost ('Kirill', 'Willy Wonka factory', new Date ());
+        console.log (attachedPost1);
+
+        attachedPost1.makeTextHighlighted();
+        attachedPost1.edit ('Cadia STAND for the Emperor');
+        console.log (attachedPost1);
+
+        //опять жестко тупил, консоль логи выдавали оба раза измененные объекты,
+        //не мог понять в чем дело, пока не заметил что нет строчки 'use strict'.
+        //жесть, нужно больше отдыхать и меньше работать :(
+    </script>
+</body>
+</html>

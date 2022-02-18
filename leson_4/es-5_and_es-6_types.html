@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es-5_and_es-6_types</title>
+</head>
+<body>
+    <script>
+
+        'use strict'
+        /*
+        Сделайте в стиле es5, а затем в стиле es6(по аналогии из дополнительных видео -> 
+        3 примеры наследования -> типы на es5 и es6),конструктор Product, который принимает 
+        параметры name и price, сохраните их как свойства объекта.Также объекты типа Product
+        должны иметь метод make25PercentDiscount, который будет уменьшать цену в объекте на 
+        25 %.Имейте в виду, что метод make25PercentDiscount не должен быть внутри 
+        функции - конструктора, и также не нужно создавать отдельный 
+        объект - прототип (как объект transport в уроке).
+        */
+
+        /* ES-5 style */
+
+        function Product (name, price) {
+            this.name = name;
+            this.price = price;
+        };
+    
+        Product.prototype.make25PercentDiscount = function () {
+            this.price = this.price - (this.price * 25 / 100);
+        };
+
+        Product.prototype.make40PercentDiscount = function () {
+            this.price = this.price - (this.price * 40 / 100);
+        };
+
+        const product1 = new Product ('Товар-1', 1500);
+        product1.make25PercentDiscount ();
+
+        const product2 = new Product ('Товар-2', 2390);
+        product2.make40PercentDiscount ();
+
+        console.log (product1);
+        console.log (product2);
+
+
+        /* ES-6 style */
+
+
+        class Prod {
+            constructor (names, prices) {
+                this.names = names;
+                this.prices = prices;
+            }
+
+            make25PercentDiscount () {
+                this.prices = this.prices - (this.prices * 25 / 100);
+            }
+
+            make40PercentDiscount () {
+                this.prices = this.prices - (this.prices * 40 / 100);
+            }
+        };
+
+        //минут 10 мучался не понимал почему не работает как должно, скидка не считалась,
+        // а потом как понял что забыл поставить круглые скобки после вызова функции 
+        // make25PercentDiscount и prod2.make40PercentDiscount . Почувствовал себя дураком.
+        const prod1 = new Prod ('Товар-3', 1800);
+        prod1.make25PercentDiscount ();
+
+        const prod2 = new Prod ('Товар-4', 2750);
+        prod2.make40PercentDiscount ();
+
+        console.log (prod1);
+        console.log (prod2);
+        
+    </script>
+</body>
+</html>
