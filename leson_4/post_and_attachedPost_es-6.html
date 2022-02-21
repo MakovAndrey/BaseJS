@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>post_and_attached-post ES-6</title>
+</head>
+<body>
+    <script>
+        'use strict'
+
+        class Post {
+            constructor (author, text, date) {
+                this.text = text;
+                this.author = author;
+                this.date = date;
+            }
+
+            edit (text) {
+                this.text = text;
+            }
+        }
+
+        const post1 = new Post ('Khorne', 'Blood for the blood god! Skulls for the Skull Throne!' , new Date());
+        console.log (post1);
+
+        post1.edit ('Corpse on the Throne!');
+        console.log (post1);
+
+        class AttachedPost extends Post {
+            constructor (author, text, date) {
+                super (author, text, date);
+                this.highlighted = false;
+            }
+
+            makeHighlighted () {
+                this.highlighted = true;
+            }
+        }
+
+        const attachedPost1 = new AttachedPost ('Slaanesh', 'God of passion, obsession, luxury, art and indulgence', new Date());
+        console.log (attachedPost1);
+
+        attachedPost1.edit ('Fulgrim Battle barge The Agony and the Ecstasy');
+        attachedPost1.makeHighlighted ();
+        console.log (attachedPost1);
+
+        /*
+        изначально стиль ES-5 казался проще, но после этого упражнения стало очевидно что ES-6 более удобный
+        */
+
+    </script>
+</body>
+</html>

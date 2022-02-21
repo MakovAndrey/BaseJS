@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Numbers</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        /*
+        не знаю насколько оправдано использование конструкции Number.isSafeInteger(numb)
+        в реалиях разработки, но мне показалось что так будет правильнее.
+        */
+        let numb = +prompt ('Введите целое трехзначное число');
+        function numbers (numb) {
+            /*
+            немного развлекся и добавил возможность сортировки отрицательных чисел
+            */
+            if (Number.isSafeInteger(numb), numb > 0 && numb < 999 || numb < 0 && numb > -999 ) {
+                return {
+                    hundreds: Math.trunc(numb / 100),
+                    tens: Math.trunc(numb / 10) % 10,
+                    units: numb % 10,
+                };
+            } else {
+                console.log ('вы ввели непраильное значение!');
+                return {};
+            }
+        }
+        
+        console.log (numbers(numb));
+        
+        /*на своем опыте убедилмся что на свежую голову легче писать*/
+    </script>
+</body>
+</html>
