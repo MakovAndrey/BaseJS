@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event listner</title>
+</head>
+<body>
+    <button id="one" class="btn">Кнопка 1</button>
+    
+    <!-- 
+    Задание.
+    1. Получите кнопку и сохраните ее в переменную.
+    2. Назначьте кнопке обработку клика.
+    3. У функции-обработчика клика сделайте параметр event
+    4. При клике из event.target выведите в консоль: id, имя класса (используйте
+    свойство className), текст на кнопке.
+    -->
+
+    <script>
+        'use strict'
+        //немного непонятна разница между event.target и event.currentTarget
+        //но судя из названия лучше использовать event.currentTarget
+        // вроде как обработчик текущего события.
+        let btn = document.querySelector('button');
+
+        btn.addEventListener ('click', function(event){
+            console.log(event.currentTarget.id);
+            console.log (event.currentTarget.className); 
+            console.log (event.currentTarget.innerText);
+        })
+    </script>
+</body>
+</html>

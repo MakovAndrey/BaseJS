@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>get Element By Id</title>
+</head>
+<body>
+    <a href="#">link1</a>
+    <a href="#">link2</a>
+    <a href="#">link3</a>
+    <a href="#" id="four">link4</a>
+    
+    <!-- Задание. Используя поиск по id, получите ссылку с текстом link4
+        и выведите ее в консоль. -->
+
+    <script>
+        //немного непонятно насколько оправдано использование 'use strict' именно
+        // в этих случаях, можно ли от них отказаться или это просто вопрос
+        //того что нужно всегда использовать эту конструцию?
+        'use strict'
+
+        const findId = document.getElementById('four');
+        console.log(findId);
+    </script>
+</body>
+</html>

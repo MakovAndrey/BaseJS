@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Кнопка</button>
+    <textarea></textarea>
+    
+    <!-- 
+    Задание. Сделайте с помощью javascript размер шрифта в кнопке 30px,
+    а в textarea сделайте зеленый фон. Используйте свойство style у каждого
+    из элементов. 
+    -->
+
+    <script>
+        'use strict'
+
+        /*
+        расслабился и ошибся, сначала написал свойства btn.style.fontSize('30px') вот так
+        и сидел негодовал от непонимания "почему оно не работает, я же все правильно делал!"
+        а потом как погуглил и понял что дурак! с фоном такая же история.
+        */
+        let btn = document.querySelector('button');
+        btn.style.fontSize = '30px';
+
+        let txtzone = document.querySelector ('textarea');
+        txtzone.style.backgroundColor = 'green';
+    </script>
+</body>
+</html>
