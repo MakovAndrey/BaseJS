@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>проверка</title>
+</head>
+<body>
+    <div class="product hidden"></div>
+    
+    <!-- Задание.
+    1. Вам нужно получить этот div.
+    2. Затем обратитесь к списку классов и с помощью метода contains()
+    проверьте есть ли класс hidden у этого тега.
+    -->
+
+    <script>
+        'use strict'
+    //вариант с простым решением
+        let div = document.querySelector('div');
+        console.log (div.classList.contains('hidden'));
+
+    // вариант с решением через функцию
+        let contains = function () {
+            if (div.classList.contains('hidden')) {
+                console.log ('класс hidden присутствует');
+            } else {
+                console.log ('класс hiden отсутствует');
+            }
+        }
+
+        contains ('div');
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        текст
+    </div>
+    
+    <!-- 
+    Задание.
+    1. Сохраните ссылку на div в переменную
+    2. Назначьте div'у обработку клика, у функции-обработчика объявите параметр event.
+    3. При клике из event.target c помощью getAttribute() получите значение
+    каждого атрибута и выведите в консоль.
+    -->
+
+    <script>
+        'use strict'
+
+        let div = document.querySelector('div');
+            div.addEventListener('click', function (event) {
+                //это решение было найдено в интернете и немного переделано
+                //оно прикольно тем что оно выдает само свойство и его значение
+                let divAttr = event.target.attributes;
+                if (event.target.hasAttributes()) {
+                    for (let x = 0; x < divAttr.length ; x++) {
+                        console.log (divAttr[x].name + ": " + divAttr[x].value);
+                    }
+                }
+
+                //это решение было сделано на основе переработки первого варианта,
+                //но это достаточно сложное задание, пока что самое сложное из всего
+                //что было.
+                for (let x = 0; x < event.target.attributes.length; x++ ) {
+                    console.log(event.target.attributes[x].value);
+                }
+            })
+    </script>
+</body>
+</html>
