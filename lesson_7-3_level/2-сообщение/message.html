@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button>Показать сообщение</button>
+    <div class="message">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, aliquam enim voluptates quibusdam
+        perferendis sint ipsa, nulla quas doloribus nobis libero voluptatem unde inventore. Ut quas corporis fugit error
+        explicabo? Ipsa quos qui similique sequi officia quod ab reiciendis alias!
+    </div>
+
+    <!-- 
+    Задание. Вам нужно чтобы при клике на кнопку появлялось сообщение .message
+    снизу экрана, в общем как сообщения вконтакте.
+    1. Аудио воспроизводите как здесь https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement
+    2. Чтобы получить высоту .message, используйте свойство clientHeight
+    3. Чтобы анимировать перемещение .message используйте стиль transform
+    как здесь https://webref.ru/css/value/translatey
+    -->
+
+    <script>
+/*на самом деле я не очень понимаю почему вот так конструкия работает (messageEl.style.transform = `translateY(-${50 + messageHeight}px)`;),
+а вот так нет (messageEl.style.transform = `translateY (-${50 + messageHeight}px)`;). Разница в пробеле после translateY.
+с чем это может быть связано? Просто я эту "фичу" не мог найти около 40 минут.
+*/
+
+        'use strict';
+        let notification = new Audio ('notification.mp3')
+        let btnEl = document.querySelector ('button');
+        let messageEl = document.querySelector ('.message');
+
+        btnEl.addEventListener ('click', function(event){
+            let messageHeight = messageEl.clientHeight;
+            messageEl.style.transform = `translateY(-${50 + messageHeight}px)`;
+            notification.play();
+
+            setTimeout(function (event) {
+                messageEl.style.transform = `translateY(+${50 + messageHeight}px)`;
+            },3000);
+        });
+    </script>
+</body>
+
+</html>
